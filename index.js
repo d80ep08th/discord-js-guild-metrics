@@ -1,10 +1,12 @@
 const { Client, Intents } = require('discord.js');
-const { token } = require('./config.json');
-
+const dotenv = require('dotenv');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
+dotenv.config();
+token = process.env.DISCORD_TOKEN
+
 client.once('ready', () => {
-	console.log('Ready!');
+	console.log('Ready to count members!');
 });
 
 client.on('interactionCreate', async interaction => {
@@ -13,7 +15,7 @@ client.on('interactionCreate', async interaction => {
 	const { commandName } = interaction;
 
 	if (commandName === 'server') {
-		await interaction.reply(`Server name: ${interaction.guild.name}\nTotal members: ${interaction.guild.memberCount}`);
+		await interaction.reply(`Total members in server: ${interaction.guild.memberCount}`);
 	}
 });
 

@@ -1,10 +1,15 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const { clientId, guildId, token } = require('./config.json');
+const dotenv = require('dotenv');
+
+dotenv.config();
+clientId = process.env.CLIENT_ID
+guildId = process.env.GUILD_ID
+token = process.env.DISCORD_TOKEN
 
 const commands = [
-		new SlashCommandBuilder().setName('server').setDescription('Replies with server info!')
+		new SlashCommandBuilder().setName('count').setDescription('Replies with total member count in server!')
 
 ]
 	.map(command => command.toJSON());
