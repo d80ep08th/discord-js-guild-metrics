@@ -7,7 +7,7 @@ npm install discord.js
 npm install dotenv
 ```
 
-##deploy-commands.js
+## deploy-commands.js
 
 This file will be used to register and update the slash commands for your bot application.
 ```
